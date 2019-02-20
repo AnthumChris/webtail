@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebTail</title>
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="icon" href="favicon.ico" type="image/png" />
+	</head>
+	<body>
+		<section>
+			<img class="logo" src="images/logo-white.png" />
+		</section>
+		<section class="chart-wrapper">
+			<h3>/var/log/monitoring.log</h3>
+			<div id="chart1" class="chart"></div>
+		</section>
+		<section class="console-wrapper">
+			<div class="console" id="console1">
+			</div>
+		</section>
+
+		<script src="js/lib/highcharts.min.js"></script>
+		<script src="js/highcharts-theme-dark-unica.min.js"></script>
+		<script src="js/app.js"></script>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+:root {
+	--console-bg: #222735;
+	--cpu-sys: #274782;
+	--cpu-process: #278281;
+	--y-line: #474a50;
+	--y-label: #8d8d8d;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(lib/Inconsolata-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Inconsolata';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(lib/Inconsolata-Bold.ttf) format('truetype');
+}
+
+html, body {
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
+body {
+	background: #000;
+	color: #767676;
+	font-family: 'open sans', arial, sans-serif;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	font-size: 12px;
+	font-weight: normal;
+	padding: 1em 0;
+	box-sizing: border-box;
+}
+
+h3 {
+	font-size: 1rem;
+	font-weight: normal;
+	text-align: center;
+	font-family: Inconsolata, monospace;
+	margin: -0.5em 0 1.5rem;
+	padding: 0;
+}
+section {
+	padding: 1em 2em;
+}
+.chart-wrapper {
+	min-height: 200px;
+}
+.console-wrapper {
+	flex: 1;
+	display: flex;
+}
+
+.logo {
+	height: 20px;
+	opacity: 0.4;
+}
+
+.chart {
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.console {
+	width: 100%;
+	font-family: Inconsolata, monospace;
+	line-height: 1.2em;
+	box-sizing: border-box;
+	font-size: 0.9em;
+	background: var(--console-bg);
+	color: #8f8f8f;
+	padding: 0;
+	overflow: scroll;
+	font-weight: normal;
+	border: .5em solid var(--console-bg);
+}
+.console div {
+	white-space: nowrap;
+}
+.console .time {
+	color: #00a500;
+}
+.console .level-debug {
+}
+.console .level-error {
+	color: #ff4a4a;
+}
+.console .class {
+	color: #00a3a3;
+}
+.console .label {
+	color: #b272e7;
+}
