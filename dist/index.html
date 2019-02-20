@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-dark">
 	<head>
 		<title>WebTail</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="icon" href="favicon.ico" type="image/png" />
-		<script>if (!window.chrome) document.documentElement.classList.add('unsupported-browser')</script>
+		<script>
+			{
+				const classList = document.documentElement.classList;
+				if (!window.chrome) classList.add('unsupported-browser');
+				classList.toggle('theme-dark', !(localStorage.getItem('darkTheme') === 'false'));
+			}
+		</script>
 	</head>
 	<body>
 		<section>
-			<img class="logo" src="images/logo-white.png" />
+			<div class="img">
+				<img class="logo img-light" src="images/logo-light.png" />
+				<img class="logo img-dark" src="images/logo-dark.png" />
+			</div>
 		</section>
 		<section class="chart-wrapper">
 			<h3>/var/log/monitoring.log</h3>
@@ -21,7 +30,12 @@
 			</div>
 		</section>
 		<div class="browser-support">
-			<div><img class="logo" src="images/logo-white.png" /></div>
+			<div>
+				<div class="img">
+					<img class="logo img-light" src="images/logo-light.png" />
+					<img class="logo img-dark" src="images/logo-dark.png" />
+				</div>
+			</div>
 			<p>
 				Please use Google Chrome for this demo
 			</p>

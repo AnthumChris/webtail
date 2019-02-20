@@ -1,7 +1,7 @@
 class TailConsole {
-  maxLines = 500;
 
   constructor({selector}) {
+    this.maxLines = 500;
     this.wrapper = $(selector);
     this.range = document.createRange();
     this.autoScrollToBottom = true; // changes when user scrolls up
@@ -46,6 +46,15 @@ Element.prototype.$ = Element.prototype.querySelector;
 Element.prototype.$$ = Element.prototype.querySelectorAll;
 const log = console.log.bind(console);
 
+// theme switcher
+document.addEventListener('keyup', e => {
+  if (e.key === 't') {
+    const darkTheme = $('html').classList.toggle('theme-dark');
+    localStorage.setItem('darkTheme', darkTheme);
+  }
+}, {passive: true})
+
+
 if (!$('html').classList.contains('unsupported-browser')) {
   init();
 }
@@ -85,7 +94,7 @@ function init() {
         symbolRadius: 0,
         floating: true,
         borderWidth: 1,
-        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        backgroundColor: 'var(--page-bg)'
     },
     time: {
       useUTC: false
