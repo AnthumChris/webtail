@@ -4,6 +4,7 @@
 		<title>WebTail</title>
 		<link rel="stylesheet" href="css/app.css">
 		<link rel="icon" href="favicon.ico" type="image/png" />
+		<script>if (!window.chrome) document.documentElement.classList.add('unsupported-browser')</script>
 	</head>
 	<body>
 		<section>
@@ -17,6 +18,12 @@
 			<div class="console" id="console1">
 			</div>
 		</section>
+		<div class="browser-support">
+			<div><img class="logo" src="images/logo-white.png" /></div>
+			<p>
+				Please use Google Chrome for this demo
+			</p>
+		</div>
 
 		<script src="js/lib/highcharts.min.js"></script>
 		<script src="js/highcharts-theme-dark-unica.min.js"></script>

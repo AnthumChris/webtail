@@ -46,84 +46,91 @@ Element.prototype.$ = Element.prototype.querySelector;
 Element.prototype.$$ = Element.prototype.querySelectorAll;
 const log = console.log.bind(console);
 
-const dataWorker = new Worker('js/worker-mock.js');
-const console1 = new TailConsole({ selector: '#console1'});
-
-dataWorker.onmessage = function(msg) {
-  const data = msg.data;
-  if (data.chart) {
-    chart.series[0].addPoint([null, data.chart.cpuSystem], false, true);
-    chart.series[1].addPoint([null, data.chart.cpuProcess], false, true);
-    chart.redraw();
-  }
-  if (data.lines) {
-    console1.append(data.lines);
-  }
+if (!$('html').classList.contains('unsupported-browser')) {
+  init();
 }
 
-const chart = new Highcharts.chart('chart1', {
-  chart: {
-    height: 200,
-    type: 'areaspline',
-    animation: {
-      duration: 250, // must be lower than onmessage frequence or oscillation animation effect occurs
-    },
-  },
-  title: false,
-  legend: {
-      layout: 'vertical',
-      align: 'left',
-      verticalAlign: 'top',
-      x: 50,
-      y: 0,
-      symbolRadius: 0,
-      floating: true,
-      borderWidth: 1,
-      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
-  },
-  time: {
-    useUTC: false
-  },
 
-  xAxis: {
-    visible: false,
-    labels: false,
-    endOnTick: false,
-    startOnTick: false,
-    minPadding: 0,
-    maxPadding: 0,
-  },
-  yAxis: {
-      title: false,
-      min: 0,
-      max: 100,
-      tickInterval: 25,
-      labels: {
-        formatter: function() {
-           return this.value+" %";
+function init() {
+  const dataWorker = new Worker('js/worker-mock.js');
+  const console1 = new TailConsole({ selector: '#console1'});
+
+  dataWorker.onmessage = function(msg) {
+    const data = msg.data;
+    if (data.chart) {
+      chart.series[0].addPoint([null, data.chart.cpuSystem], false, true);
+      chart.series[1].addPoint([null, data.chart.cpuProcess], false, true);
+      chart.redraw();
+    }
+    if (data.lines) {
+      console1.append(data.lines);
+    }
+  }
+
+  const chart = new Highcharts.chart('chart1', {
+    chart: {
+      height: 200,
+      type: 'areaspline',
+      animation: {
+        duration: 250, // must be lower than onmessage frequence or oscillation animation effect occurs
+      },
+    },
+    title: false,
+    legend: {
+        layout: 'vertical',
+        align: 'left',
+        verticalAlign: 'top',
+        x: 50,
+        y: 0,
+        symbolRadius: 0,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+    },
+    time: {
+      useUTC: false
+    },
+
+    xAxis: {
+      visible: false,
+      labels: false,
+      endOnTick: false,
+      startOnTick: false,
+      minPadding: 0,
+      maxPadding: 0,
+    },
+    yAxis: {
+        title: false,
+        min: 0,
+        max: 100,
+        tickInterval: 25,
+        labels: {
+          formatter: function() {
+             return this.value+" %";
+          }
+        },
+    },
+    tooltip: false,
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        areaspline: {
+            marker: {
+              enabled: false,
+            },
+            lineColor: false,
+        },
+        series: {
+          animation: false
         }
-      },
-  },
-  tooltip: false,
-  credits: {
-      enabled: false
-  },
-  plotOptions: {
-      areaspline: {
-          marker: {
-            enabled: false,
-          },
-          lineColor: false,
-      },
-      series: {
-        animation: false
-      }
-  },
-  series: [{
-      name: 'System CPU',
-      data: new Array(100).fill(0),
-  }, {
-      name: 'Process CPU',
-      data: new Array(100).fill(0),
-  }]
-});
+    },
+    series: [{
+        name: 'System CPU',
+        data: new Array(100).fill(0),
+    }, {
+        name: 'Process CPU',
+        data: new Array(100).fill(0),
+    }]
+  });  
+}

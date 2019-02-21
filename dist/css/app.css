@@ -45,6 +45,31 @@ h3 {
 	margin: -0.5em 0 1.5rem;
 	padding: 0;
 }
+
+.browser-support {
+	display: none;
+	background: var(--console-bg);
+	color: #999;
+	padding: 4em;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 16px;
+	margin: 5rem auto 0;
+}
+.browser-support p {
+	margin: 4em 0 0;
+}
+.browser-support .logo {
+	height: 40px;
+}
+
+.unsupported-browser section {
+	display: none;
+}
+.unsupported-browser .browser-support {
+	display: inline-block;
+}
+
 section {
 	padding: 1em 2em;
 }
