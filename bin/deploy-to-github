@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# project root
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. && pwd )"
+
+cd "$ROOT"
+git push origin -d gh-pages; git subtree push --prefix dist origin gh-pages
+echo
+echo "---------------------------------------------------------------------"
+echo
+echo "🐒 🌎 deployed to https://pages.github.ibm.com/chris-mcgowan/webtail/"
