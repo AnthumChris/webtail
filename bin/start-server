@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+# project root
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. && pwd )"
+
+# start HTTP and open browser
+URL="http://localhost:8000"
+cd "$ROOT/dist"
+echo "Starting server at $URL"
+(sleep 1; open "$URL") &
+python -m SimpleHTTPServer;
