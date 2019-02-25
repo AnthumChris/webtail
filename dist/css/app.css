@@ -19,7 +19,7 @@ body {
 	--console-txt: #333;
 	--console-txt-label: #7d00e4;
 	--console-txt-class: #0056b0;
-	--console-txt-time: #008900;
+	--console-txt-time: #008300;
 	--logo-opacity: 1;
 	--console-outline-color: #ccc;
 	--console-outline: 1px solid var(--console-outline-color);
@@ -36,7 +36,7 @@ body {
 	--console-txt: #8f8f8f;
 	--console-txt-label: #b272e7;
 	--console-txt-class: #00a3a3;
-	--console-txt-time: #008900;
+	--console-txt-time: #00a800;
 	--logo-opacity: 0.5;
 	--console-outline-color: #333;
 	--console-outline: 1px solid var(--console-outline-color);
