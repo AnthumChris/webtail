@@ -9,7 +9,7 @@ https://pages.github.ibm.com/chris-mcgowan/webtail/
 ### Running Locally
 
 ```
-$ bin/start-server
+$ bin/start-client
 ```
 
 ### Deploy to GitHub
