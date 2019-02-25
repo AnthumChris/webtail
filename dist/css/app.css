@@ -48,12 +48,6 @@ body {
   font-weight: 400;
   src: local('Inconsolata Regular'), local('Inconsolata-Regular'), url(lib/Inconsolata-Regular.ttf) format('truetype');
 }
-@font-face {
-  font-family: 'Inconsolata';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Inconsolata Bold'), local('Inconsolata-Bold'), url(lib/Inconsolata-Bold.ttf) format('truetype');
-}
 
 html, body {
 	height: 100%;
@@ -72,6 +66,7 @@ body {
 	font-weight: normal;
 	padding: 1em 0;
 	box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 
 h3 {
