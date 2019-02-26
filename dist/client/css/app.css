@@ -147,6 +147,11 @@ section {
 	transition: var(--transition-bg), var(--transition-outline);
 }
 
+.status.error {
+	text-align: left;
+	color: #ff4a4a;
+}
+
 .console {
 	width: 100%;
 	font-family: Inconsolata, monospace;
@@ -164,7 +169,7 @@ section {
 	transition: var(--transition-bg), var(--transition-outline), var(--transition-border-color);
 }
 .console div {
-	white-space: nowrap;
+	white-space: pre;
 }
 .console .time {
 	color: var(--console-txt-time);

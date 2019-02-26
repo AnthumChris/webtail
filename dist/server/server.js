@@ -16,8 +16,11 @@ if (!fs.existsSync(logFileName)) {
 
 const server = new WebSocket.Server({ host: '127.0.0.1', port: 4000 });
 console.log(`Listening for client connections...`);
-server.on('connection', _ => {
+server.on('connection', socket => {
   console.log('client connected,', 'total:', server.clients.size);
+  socket.send(JSON.stringify({
+    fileName: logFileName
+  }))
 });
 
 
@@ -26,6 +29,9 @@ new Tail(logFileName).on('line', broadcastLine);
 function broadcastLine(line) {
   server.clients.forEach(client => {
     if (client.readyState === WebSocket.OPEN)
-      client.send(line)
+      client.send(JSON.stringify({
+        fileName: logFileName,
+        line
+      }))
   });
 }

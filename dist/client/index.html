@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-dark">
+<html lang="en">
 	<head>
 		<title>WebTail</title>
 		<meta charset="UTF-8">
@@ -10,7 +10,7 @@
 			{
 				const classList = document.documentElement.classList;
 				if (!window.chrome) classList.add('unsupported-browser');
-				classList.toggle('theme-dark', !(localStorage.getItem('darkTheme') === 'false'));
+				classList.toggle('theme-dark', (localStorage.getItem('darkTheme') === 'true'));
 			}
 		</script>
 	</head>
@@ -22,7 +22,7 @@
 			</div>
 		</section>
 		<section class="chart-wrapper">
-			<h3>/var/log/monitoring.log</h3>
+			<h3 class="status">&nbsp;</h3>
 			<div id="chart1" class="chart"></div>
 		</section>
 		<section class="console-wrapper">

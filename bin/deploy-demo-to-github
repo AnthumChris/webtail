@@ -8,4 +8,4 @@ git push origin -d gh-pages; git subtree push --prefix dist/client origin gh-pag
 echo
 echo "---------------------------------------------------------------------"
 echo
-echo "🐒 🌎 deployed to https://pages.github.ibm.com/chris-mcgowan/webtail/"
+echo "🐒 🌎 deployed to https://pages.github.ibm.com/chris-mcgowan/webtail/?mock"
