@@ -1,7 +1,7 @@
 class TailConsole {
 
   constructor({selector}) {
-    this.maxLines = 500;
+    this.maxLines = 250;
     this.wrapper = $(selector);
     this.range = document.createRange();
     this.autoScrollToBottom = true; // changes when user scrolls up
@@ -45,6 +45,7 @@ const $$ = document.querySelectorAll.bind(document);
 Element.prototype.$ = Element.prototype.querySelector;
 Element.prototype.$$ = Element.prototype.querySelectorAll;
 const log = console.log.bind(console);
+let dataWorker = null;
 
 // theme switcher
 document.addEventListener('keyup', e => {
@@ -59,13 +60,37 @@ if (!$('html').classList.contains('unsupported-browser')) {
   init();
 }
 
+function showError(message) {
+  const el = $('.status');
+  el.classList.add('error');
+  el.innerHTML = message;
+}
+
+function showStatus(message) {
+  const el = $('.status');
+  el.classList.remove('error');
+  el.innerHTML = message;
+}
 
 function init() {
-  const dataWorker = new Worker('js/worker-mock.js');
+  dataWorker = new Worker(new URLSearchParams(location.search).has('mock') ? 'js/worker-mock.js' : 'js/worker-resilient-ws.js');
   const console1 = new TailConsole({ selector: '#console1'});
+
+  dataWorker.onerror = function(evt) {
+    showError('An internal error has occurred. Shame on it.');
+  }
 
   dataWorker.onmessage = function(msg) {
     const data = msg.data;
+
+    if (data.error) {
+      showError(data.error);
+      return;
+    }
+
+    if (data.fileName) {
+      showStatus(data.fileName);
+    }
     if (data.chart) {
       chart.series[0].addPoint([null, data.chart.cpuSystem], false, true);
       chart.series[1].addPoint([null, data.chart.cpuProcess], false, true);
@@ -81,7 +106,7 @@ function init() {
       height: 200,
       type: 'areaspline',
       animation: {
-        duration: 250, // must be lower than onmessage frequence or oscillation animation effect occurs
+        duration: 500, // must be lower than onmessage frequence or oscillation animation effect occurs
       },
     },
     title: false,

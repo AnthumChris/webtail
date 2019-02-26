@@ -1,6 +1,6 @@
 // mock data worker posts random randomness
 
-const interval = 500;
+const interval = 1000;
 
 init();
 
@@ -21,6 +21,7 @@ function postRandomData() {
 
 	const data = {
 		lines: getRandomLine({ showError, cpuSystem, cpuProcess }),
+		fileName: '/var/log/monitoring.log'
 	};
 
 	if (!showError) {
