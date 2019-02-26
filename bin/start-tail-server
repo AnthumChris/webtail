@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+if [ -z $1 ] ; then
+  echo "Filename argument is required"
+  exit 1
+fi
+
+FILE="$1"
+
+# project root
+ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && cd .. && pwd )"
+
+# start HTTP and open browser
+URL="http://localhost:4000"
+cd "$ROOT/dist/server"
+
+if [ ! -d node_modules ] ; then
+  echo "Installing NodeJS deps..."
+  npm install
+fi
+
+echo "Starting WebSocket tail server at $URL for $FILE"
+node server.js "$1"

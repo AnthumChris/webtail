@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "dependencies": {
+    "tail": "^2.0.2",
+    "ws": "^6.1.4"
+  },
+  "devDependencies": {}
+}
