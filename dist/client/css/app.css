@@ -22,6 +22,7 @@ body {
 	--console-txt-label: #7d00e4;
 	--console-txt-class: #0056b0;
 	--console-txt-time: #008300;
+	--console-txt-thread: #9e5a00;
 	--console-txt-error: #ff4a4a;
 	--logo-opacity: 1;
 	--console-outline-color: #ccc;
@@ -42,6 +43,7 @@ body {
 	--console-txt-label: #b272e7;
 	--console-txt-class: #00a3a3;
 	--console-txt-time: #00a800;
+	--console-txt-thread: #c37e00;
 	--console-txt-error: #ff4a4a;
 	--logo-opacity: 0.5;
 	--console-outline-color: #333;
@@ -217,6 +219,9 @@ section {
 }
 .console .label {
 	color: var(--console-txt-label);
+}
+.console .thread {
+	color: var(--console-txt-thread);
 }
 
 .highcharts-background,
