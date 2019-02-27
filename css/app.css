@@ -14,8 +14,8 @@ body {
 	--console-bg: #f5f5f5;
 	--cpu-sys: #a302de;
 	--cpu-process: #00cbc9;
-	--ram-used: #de0202;
-	--ram-free: #00cbc9;
+	--ram-used: #de8b02;
+	--ram-free: #d5d5d5;
 	--y-line: #ddd;
 	--y-label: #585858;
 	--console-txt: #333;
@@ -32,11 +32,11 @@ body {
 .theme-dark body {
 	--page-bg: #000;
 	--page-txt: #767676;
-	--console-bg: #222735;
+	--console-bg: #191d27;
 	--cpu-sys: #274782;
 	--cpu-process: #278281;
-	--ram-used: #800;
-	--ram-free: #278281;
+	--ram-used: #a56b00;
+	--ram-free: #323c50;
 	--y-line: #474a50;
 	--y-label: #8d8d8d;
 	--console-txt: #8f8f8f;
