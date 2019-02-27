@@ -6,6 +6,22 @@ const chartValPatterns = new RegExp([
 	'MemFreeMB: (\\d+)',            // 6
 ].join('.*'));
 
+// regex pattern replacements
+const perfLogReplacements = [
+	// XSS
+	[/&/g, '&amp;'],
+	[/</g, '&lt;'],
+
+	// visual decorators
+  [/(\d\d:\d\d:\d\d\.\d\d\d)/, '<span class="time">$1</span>'],
+  [/(\[pool.*\])/, '<span class="thread">$1</span>'],
+  [/ (DEBUG) /, ' <span class="level-debug">$1</span> '],
+  [/ (ERROR) /, ' <span class="level-error">$1</span> '],
+  [/(c\.c\.u\.monitoring.Co3SystemAnalyzer)/, '<span class="class">$1</span>'],
+  [/(Perf Info)/, '<span class="label">$1</span>'],
+]
+
+
 const socket = new WebSocket('ws://localhost:4000/');
 socket.onopen = _ => console.log('WS opened!', this);
 socket.onerror = function(e) {
@@ -33,8 +49,6 @@ function processSocketData(data) {
 		postData.fileName = data.fileName;
 
 	if (data.line) {
-		postData.lines = [`<div>${data.line}</div>`];
-
 		// parse last line for chart values and add to postData
 		const chartValMatches = data.line.match(chartValPatterns);
 		if (chartValMatches && chartValMatches.length > 6) {
@@ -49,6 +63,8 @@ function processSocketData(data) {
 			}
 		}
 
+		const line = perfLogReplacements.reduce((val, params) => val.replace.apply(val, params), data.line);
+		postData.lines = [`<div>${line}</div>`];
 	}
 
 	self.postMessage(postData);
