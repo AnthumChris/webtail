@@ -38,11 +38,14 @@ function processSocketData(data) {
 		// parse last line for chart values and add to postData
 		const chartValMatches = data.line.match(chartValPatterns);
 		if (chartValMatches && chartValMatches.length > 6) {
+			const memTotal = parseInt(chartValMatches[5]);
+			const memFree = parseInt(chartValMatches[6]);
+
 			postData.chart = {
 				cpuSystem: parseFloat(chartValMatches[1]),
 				cpuProcess: parseFloat(chartValMatches[3]),
-				memTotal: parseInt(chartValMatches[5]),
-				memFree: parseInt(chartValMatches[6]),
+				memUsed: memTotal-memFree, 
+				memFree: memFree
 			}
 		}
 
