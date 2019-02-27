@@ -190,9 +190,9 @@ function init() {
           enabled: false
         },
         showInLegend: true,
-        // endAngle: 360 - 360/12*2 + 360/12*7, // show "2 hours less" than 7:00 startAngle
         slicedOffset: 0,
-        // startAngle: 360/12*7, // 7:00
+        endAngle: 360 - 360/12*2 + 360/12*7, // show "2 hours less" than 7:00 startAngle
+        startAngle: 360/12*7, // 7:00
         states: {
           hover: {
             color: '#000',
