@@ -51,6 +51,8 @@ let dataWorker = null;
 document.addEventListener('keyup', e => {
   if (e.key === 't' || e.key === 'd') {
     toggleTheme()
+  } else if (e.key === 'f') {
+    toggleFullScreen();
   }
 }, {passive: true})
 
@@ -74,6 +76,14 @@ function showStatus(message) {
 function toggleTheme() {
     const darkTheme = $('html').classList.toggle('theme-dark');
     localStorage.setItem('darkTheme', darkTheme);
+}
+
+function toggleFullScreen() {
+  if (document.fullscreenElement) {
+    document.exitFullscreen();
+  } else {
+    document.documentElement.requestFullscreen();
+  }
 }
 
 function init() {
