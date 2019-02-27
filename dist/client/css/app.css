@@ -1,53 +1,53 @@
 :root {
-	--transition-time: 0.5s;
-	--transition-easing: linear;
-	--transition-bg: background-color var(--transition-time) var(--transition-easing);
-	--transition-outline: outline var(--transition-time) var(--transition-easing);
-	--transition-border-color: border-color var(--transition-time) var(--transition-easing);
-	--transition-fill: fill var(--transition-time) var(--transition-easing);
-	--transition-stroke: stroke var(--transition-time) var(--transition-easing);
+  --transition-time: 0.5s;
+  --transition-easing: linear;
+  --transition-bg: background-color var(--transition-time) var(--transition-easing);
+  --transition-outline: outline var(--transition-time) var(--transition-easing);
+  --transition-border-color: border-color var(--transition-time) var(--transition-easing);
+  --transition-fill: fill var(--transition-time) var(--transition-easing);
+  --transition-stroke: stroke var(--transition-time) var(--transition-easing);
 }
 
 body {
-	--page-bg: #fff;
-	--page-txt: #000;
-	--console-bg: #f5f5f5;
-	--cpu-sys: #a302de;
-	--cpu-process: #00cbc9;
-	--ram-used: #de8b02;
-	--ram-free: #d5d5d5;
-	--y-line: #ddd;
-	--y-label: #585858;
-	--console-txt: #333;
-	--console-txt-label: #7d00e4;
-	--console-txt-class: #0056b0;
-	--console-txt-time: #008300;
-	--console-txt-thread: #9e5a00;
-	--console-txt-error: #ff4a4a;
-	--logo-opacity: 1;
-	--console-outline-color: #ccc;
-	--console-outline: 1px solid var(--console-outline-color);
+  --page-bg: #fff;
+  --page-txt: #000;
+  --console-bg: #f5f5f5;
+  --cpu-sys: #a302de;
+  --cpu-process: #00cbc9;
+  --ram-used: #de8b02;
+  --ram-free: #d5d5d5;
+  --y-line: #ddd;
+  --y-label: #585858;
+  --console-txt: #333;
+  --console-txt-label: #7d00e4;
+  --console-txt-class: #0056b0;
+  --console-txt-time: #008300;
+  --console-txt-thread: #9e5a00;
+  --console-txt-error: #ff4a4a;
+  --logo-opacity: 1;
+  --console-outline-color: #ccc;
+  --console-outline: 1px solid var(--console-outline-color);
 }
 
 .theme-dark body {
-	--page-bg: #000;
-	--page-txt: #767676;
-	--console-bg: #191d27;
-	--cpu-sys: #274782;
-	--cpu-process: #278281;
-	--ram-used: #a56b00;
-	--ram-free: #323c50;
-	--y-line: #474a50;
-	--y-label: #8d8d8d;
-	--console-txt: #8f8f8f;
-	--console-txt-label: #b272e7;
-	--console-txt-class: #00a3a3;
-	--console-txt-time: #00a800;
-	--console-txt-thread: #c37e00;
-	--console-txt-error: #ff4a4a;
-	--logo-opacity: 0.5;
-	--console-outline-color: #333;
-	--console-outline: 1px solid var(--console-outline-color);
+  --page-bg: #000;
+  --page-txt: #767676;
+  --console-bg: #191d27;
+  --cpu-sys: #274782;
+  --cpu-process: #278281;
+  --ram-used: #a56b00;
+  --ram-free: #323c50;
+  --y-line: #474a50;
+  --y-label: #8d8d8d;
+  --console-txt: #8f8f8f;
+  --console-txt-label: #b272e7;
+  --console-txt-class: #00a3a3;
+  --console-txt-time: #00a800;
+  --console-txt-thread: #c37e00;
+  --console-txt-error: #ff4a4a;
+  --logo-opacity: 0.5;
+  --console-outline-color: #333;
+  --console-outline: 1px solid var(--console-outline-color);
 }}
 
 @font-face {
@@ -58,83 +58,83 @@ body {
 }
 
 html, body {
-	height: 100%;
-	padding: 0;
-	margin: 0;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 body {
-	background: var(--page-bg);
-	transition: var(--transition-bg);
-	color: var(--page-txt);
-	font-family: 'open sans', arial, sans-serif;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	font-size: 12px;
-	font-weight: normal;
-	padding: .25rem 0 0.75rem;
-	box-sizing: border-box;
+  background: var(--page-bg);
+  transition: var(--transition-bg);
+  color: var(--page-txt);
+  font-family: 'open sans', arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-size: 12px;
+  font-weight: normal;
+  padding: .25rem 0 0.75rem;
+  box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
 
 h3 {
-	font-size: 1rem;
-	font-weight: normal;
-	text-align: center;
-	font-family: Inconsolata, monospace;
-	margin: -0.5em 0 1.5rem;
-	padding: 0;
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  font-family: Inconsolata, monospace;
+  margin: -0.5em 0 1.5rem;
+  padding: 0;
 }
 
 .browser-support {
-	display: none;
-	background: var(--console-bg);
-	transition: var(--transition-bg), var(--transition-outline);
-	outline: var(--console-outline);
-	color: var(--console-txt);
-	padding: 4em;
-	text-align: center;
-	margin: 0 auto;
-	font-size: 16px;
-	margin: 5rem auto 0;
+  display: none;
+  background: var(--console-bg);
+  transition: var(--transition-bg), var(--transition-outline);
+  outline: var(--console-outline);
+  color: var(--console-txt);
+  padding: 4em;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 16px;
+  margin: 5rem auto 0;
 }
 .browser-support p {
-	margin: 4em 0 0;
+  margin: 4em 0 0;
 }
 .browser-support .logo {
-	height: 40px;
+  height: 40px;
 }
 
 .unsupported-browser section {
-	display: none;
+  display: none;
 }
 .unsupported-browser .browser-support {
-	display: inline-block;
+  display: inline-block;
 }
 
 section {
-	padding: .75rem 1.25rem;
+  padding: .75rem 1.25rem;
 }
 .charts {
-	display: flex;
+  display: flex;
 }
 .chart {
-	min-height: 200px;
-	flex: 1;
+  min-height: 200px;
+  flex: 1;
 }
 .chart-square {
-	width: 200px;
-	flex: none;
-	margin-left: 1.5rem;
-	box-sizing: content-box;
-	align-items: center;
+  width: 200px;
+  flex: none;
+  margin-left: 1.5rem;
+  box-sizing: content-box;
+  align-items: center;
   justify-content: center;
   position: relative;
 }
 .chart-square .label {
-	position: absolute;
-	display: flex;
-	align-items: center;
+  position: absolute;
+  display: flex;
+  align-items: center;
   justify-content: center;
   text-align: center;
   line-height: 1.5em;
@@ -146,82 +146,82 @@ section {
   color: var(--page-txt);
 }
 .console-wrapper {
-	flex: 1;
-	display: flex;
+  flex: 1;
+  display: flex;
 }
 
 .img {
-	line-height: 0;
-	display: inline-block;
-	position: relative;
+  line-height: 0;
+  display: inline-block;
+  position: relative;
 }
 .img img {
-	position: relative;
+  position: relative;
 }
 
 .img-dark {
-	display: none;
+  display: none;
 }
 .theme-dark .img-light {
-	display: none;
+  display: none;
 }
 .theme-dark .img-dark {
-	display: inherit;
+  display: inherit;
 }
 
 
 
 .logo {
-	height: 20px;
-	opacity: var(--logo-opacity);
+  height: 20px;
+  opacity: var(--logo-opacity);
 }
 
 .chart {
-	box-sizing: border-box;
-	outline: var(--console-outline);
-	transition: var(--transition-bg), var(--transition-outline);
+  box-sizing: border-box;
+  outline: var(--console-outline);
+  transition: var(--transition-bg), var(--transition-outline);
 }
 
 .status.error {
-	text-align: left;
-	color: #ff4a4a;
+  text-align: left;
+  color: #ff4a4a;
 }
 
 .console {
-	width: 100%;
-	font-family: Inconsolata, monospace;
-	line-height: 1.2em;
-	box-sizing: border-box;
-	font-size: 12px;
-	color: var(--console-txt);
-	padding: 0;
-	overflow: scroll;
-	font-weight: normal;
-	border: .5em solid var(--console-bg);
+  width: 100%;
+  font-family: Inconsolata, monospace;
+  line-height: 1.2em;
+  box-sizing: border-box;
+  font-size: 12px;
+  color: var(--console-txt);
+  padding: 0;
+  overflow: scroll;
+  font-weight: normal;
+  border: .5em solid var(--console-bg);
 
-	background: var(--console-bg);
-	outline: var(--console-outline);
-	transition: var(--transition-bg), var(--transition-outline), var(--transition-border-color);
+  background: var(--console-bg);
+  outline: var(--console-outline);
+  transition: var(--transition-bg), var(--transition-outline), var(--transition-border-color);
 }
 .console div {
-	white-space: pre;
+  white-space: pre;
 }
 .console .time {
-	color: var(--console-txt-time);
+  color: var(--console-txt-time);
 }
 .console .level-debug {
 }
 .console .level-error {
-	color: var(--console-txt-error);
+  color: var(--console-txt-error);
 }
 .console .class {
-	color: var(--console-txt-class);
+  color: var(--console-txt-class);
 }
 .console .label {
-	color: var(--console-txt-label);
+  color: var(--console-txt-label);
 }
 .console .thread {
-	color: var(--console-txt-thread);
+  color: var(--console-txt-thread);
 }
 
 .highcharts-background,
@@ -229,5 +229,5 @@ section {
 .highcharts-grid-line,
 .highcharts-point,
 .highcharts-series path {
-	transition: var(--transition-fill), var(--transition-stroke);
+  transition: var(--transition-fill), var(--transition-stroke);
 }
