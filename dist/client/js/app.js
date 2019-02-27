@@ -92,22 +92,21 @@ function init() {
       showStatus(data.fileName);
     }
     if (data.chart) {
-      chart.series[0].addPoint([null, data.chart.cpuSystem], false, true);
-      chart.series[1].addPoint([null, data.chart.cpuProcess], false, true);
-      chart.redraw();
+      lineChart.series[0].addPoint([null, data.chart.cpuSystem], false, true);
+      lineChart.series[1].addPoint([null, data.chart.cpuProcess], false, true);
+      lineChart.redraw();
+
+      pieChart.series[0].setData([data.chart.memUsed, data.chart.memFree], true);
     }
     if (data.lines) {
       console1.append(data.lines);
     }
   }
 
-  const chart = new Highcharts.chart('chart1', {
+  const lineChart = new Highcharts.chart('chart1', {
     chart: {
       height: 200,
       type: 'areaspline',
-      animation: {
-        duration: 500, // must be lower than onmessage frequence or oscillation animation effect occurs
-      },
     },
     title: false,
     legend: {
@@ -144,10 +143,6 @@ function init() {
           }
         },
     },
-    tooltip: false,
-    credits: {
-        enabled: false
-    },
     plotOptions: {
         areaspline: {
             marker: {
@@ -157,7 +152,7 @@ function init() {
         },
         series: {
           animation: false
-        }
+        },
     },
     series: [{
         name: 'System CPU',
@@ -166,5 +161,59 @@ function init() {
         name: 'Process CPU',
         data: new Array(100).fill(0),
     }]
-  });  
+  });
+
+
+  pieChart = new Highcharts.Chart('chart2', {
+    chart: {
+      height: 200,
+      type: 'pie',
+      margin: 12,
+      spacing: 0,
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'center',
+      verticalAlign: 'middle',
+      // x: 50,
+      // y: 0,
+      symbolRadius: 0,
+      floating: true,
+      borderWidth: 1,
+      backgroundColor: 'var(--page-bg)'
+    },
+    plotOptions: {
+      pie: {
+        animation: false,
+        borderWidth: 0,
+        dataLabels: {
+          enabled: false
+        },
+        showInLegend: true,
+        // endAngle: 360 - 360/12*2 + 360/12*7, // show "2 hours less" than 7:00 startAngle
+        slicedOffset: 0,
+        // startAngle: 360/12*7, // 7:00
+        states: {
+          hover: {
+            color: '#000',
+            enabled: false,
+            halo: false
+          }
+        }
+      }
+    },
+    series: [{
+      data: [{
+        name: 'Memory Used',
+        color: 'var(--ram-used)',
+      }, {
+        name: 'Memory Free',
+        color: 'var(--ram-free)',
+      }],
+      size: '100%',
+      innerSize: '85%'
+    }],
+    tooltip: { enabled: false }
+  });
+
 }
