@@ -49,9 +49,8 @@ let dataWorker = null;
 
 // theme switcher
 document.addEventListener('keyup', e => {
-  if (e.key === 't') {
-    const darkTheme = $('html').classList.toggle('theme-dark');
-    localStorage.setItem('darkTheme', darkTheme);
+  if (e.key === 't' || e.key === 'd') {
+    toggleTheme()
   }
 }, {passive: true})
 
@@ -70,6 +69,11 @@ function showStatus(message) {
   const el = $('.status');
   el.classList.remove('error');
   el.innerHTML = message;
+}
+
+function toggleTheme() {
+    const darkTheme = $('html').classList.toggle('theme-dark');
+    localStorage.setItem('darkTheme', darkTheme);
 }
 
 function init() {
@@ -102,6 +106,8 @@ function init() {
       console1.append(data.lines);
     }
   }
+
+  $('#toggle-theme').addEventListener('click', toggleTheme);
 
   const lineChart = new Highcharts.chart('chart1', {
     chart: {

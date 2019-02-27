@@ -2,6 +2,7 @@
   --transition-time: 0.5s;
   --transition-easing: linear;
   --transition-bg: background-color var(--transition-time) var(--transition-easing);
+  --transition-color: color var(--transition-time) var(--transition-easing);
   --transition-outline: outline var(--transition-time) var(--transition-easing);
   --transition-border-color: border-color var(--transition-time) var(--transition-easing);
   --transition-fill: fill var(--transition-time) var(--transition-easing);
@@ -27,6 +28,9 @@ body {
   --logo-opacity: 1;
   --console-outline-color: #ccc;
   --console-outline: 1px solid var(--console-outline-color);
+  --button-bg: #d5d5d5;
+  --button-txt: #fff;
+  --button-txt-active: #425e99;
 }
 
 .theme-dark body {
@@ -48,6 +52,8 @@ body {
   --logo-opacity: 0.5;
   --console-outline-color: #333;
   --console-outline: 1px solid var(--console-outline-color);
+  --button-bg: var(--console-bg);
+  --button-txt: #00a3a3;
 }}
 
 @font-face {
@@ -222,6 +228,25 @@ section {
 }
 .console .thread {
   color: var(--console-txt-thread);
+}
+
+.buttons {
+  float: right;
+}
+button {
+  border: none;
+  outline: none;
+  background: var(--button-bg);
+  color: var(--button-txt);
+  transition: var(--transition-bg), var(--transition-color);
+  min-height: 30px;
+  min-width: 30px;
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  font-size: 22px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .highcharts-background,
