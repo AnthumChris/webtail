@@ -168,7 +168,7 @@ function init() {
     chart: {
       height: 200,
       type: 'pie',
-      margin: 12,
+      margin: [12, 8, 0, 8],
       spacing: 0,
     },
     legend: {
@@ -204,14 +204,14 @@ function init() {
     },
     series: [{
       data: [{
-        name: 'Memory Used',
+        name: 'Mem Used',
         color: 'var(--ram-used)',
       }, {
-        name: 'Memory Free',
+        name: 'Mem Free',
         color: 'var(--ram-free)',
       }],
       size: '100%',
-      innerSize: '85%'
+      innerSize: '80%'
     }],
     tooltip: { enabled: false }
   });
