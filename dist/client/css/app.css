@@ -256,3 +256,9 @@ button {
 .highcharts-series path {
   transition: var(--transition-fill), var(--transition-stroke);
 }
+
+@media (max-width: 550px) {
+  .chart-square {
+    display: none;
+  }
+}
