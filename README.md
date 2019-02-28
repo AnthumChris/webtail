@@ -10,7 +10,10 @@
 
 https://pages.github.ibm.com/chris-mcgowan/webtail/?mock
 
-Press `T` to toggle light/dark theme.
+**Keyboard Controls:**
+
+**`D`** : toggle dark mode<br>
+**`F`** : toggle full screen
 
 ## Running Locally
 
