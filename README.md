@@ -8,7 +8,7 @@
 
 ## Live Demo (mock data)
 
-https://pages.github.ibm.com/chris-mcgowan/webtail/?mock
+https://anthumchris.github.io/webtail/?mock
 
 **Keyboard Controls:**
 
